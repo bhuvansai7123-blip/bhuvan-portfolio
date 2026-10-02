@@ -36,7 +36,6 @@ export default async function ProjectDetail({
         .map((s: string) => s.trim())
         .filter(Boolean);
 
-  // One feature per line in the database
   const features: string[] = (p.features || "")
     .split("\n")
     .map((f: string) => f.trim())
@@ -59,6 +58,9 @@ export default async function ProjectDetail({
         </div>
       )}
 
+      {p.category && (
+        <div className="text-xs uppercase tracking-wide text-muted mb-1">{p.category}</div>
+      )}
       <h1 className="text-2xl font-bold mb-1">{p.name}</h1>
       <div className="text-xs text-muted mb-4">
         {fmt(p.start_date)} — {p.end_date ? fmt(p.end_date) : "Present"}
